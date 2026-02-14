@@ -1,0 +1,32 @@
+.switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  background: white;
+  color: black;
+  border-radius: 24px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all var(--transition-base);
+  box-shadow: 0 2px 8px rgba(92, 107, 74, 0.3);
+}
+
+.switcher:hover {
+  background: var(--olive-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(92, 107, 74, 0.4);
+}
+
+.switcher:active {
+  transform: translateY(0);
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+.label {
+  font-family: var(--font-body);
+  letter-spacing: 0;
+}
