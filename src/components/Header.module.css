@@ -12,21 +12,56 @@
 
 .switcherContainer {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: var(--space-sm);
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
 }
 
 [dir="ltr"] .switcherContainer {
+  right: 1rem;
   left: auto;
-  right: var(--space-sm);
+}
+
+.dashboardLink {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #006962;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.dashboardLink:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dashboardLink:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+[dir="ltr"] .dashboardLink {
+  left: 1rem;
+  right: auto;
 }
 
 .logoContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 0;
+  padding: 1rem 0;
 }
 
 .ornament {
@@ -37,7 +72,7 @@
 }
 
 .logo {
-  height: clamp(90px, 22vw, 140px);
+  height: clamp(140px, 30vw, 220px);
   width: auto;
   margin: 0;
 }

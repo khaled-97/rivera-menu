@@ -5,7 +5,7 @@ import styles from './MenuItem.module.css';
 export default function MenuItem({ item, index }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const handleImageLoad = () => {
     setImageLoaded(true);
@@ -16,8 +16,37 @@ export default function MenuItem({ item, index }) {
     setImageLoaded(true);
   };
 
-  const translatedName = t(`items.${item.id}.name`);
-  const translatedDescription = t(`items.${item.id}.description`);
+  // Get translated name or fallback to item data
+  const getItemName = () => {
+    const translated = t(`items.${item.id}.name`);
+    if (translated === `items.${item.id}.name`) {
+      // No translation found, use item's name based on language
+      if (language === 'ar') {
+        return item.nameAr || item.nameIt || item.name;
+      } else if (language === 'he') {
+        return item.nameHe || item.name;
+      }
+      return item.name;
+    }
+    return translated;
+  };
+
+  // Get translated description or fallback to item data
+  const getItemDescription = () => {
+    const translated = t(`items.${item.id}.description`);
+    if (translated === `items.${item.id}.description`) {
+      if (language === 'ar') {
+        return item.descriptionAr || item.description || '';
+      } else if (language === 'he') {
+        return item.descriptionHe || item.description || '';
+      }
+      return item.description || '';
+    }
+    return translated;
+  };
+
+  const translatedName = getItemName();
+  const translatedDescription = getItemDescription();
 
   return (
     <article 
@@ -46,11 +75,15 @@ export default function MenuItem({ item, index }) {
         )}
         {item.tags && item.tags.length > 0 && (
           <div className={styles.tags}>
-            {item.tags.slice(0, 2).map((tag) => (
-              <span key={tag} className={styles.tag}>
-                {t(`tags.${tag}`)}
-              </span>
-            ))}
+            {item.tags.slice(0, 2).map((tag) => {
+              const translatedTag = t(`tags.${tag}`);
+              // If no translation, show the tag as-is
+              return (
+                <span key={tag} className={styles.tag}>
+                  {translatedTag === `tags.${tag}` ? tag : translatedTag}
+                </span>
+              );
+            })}
           </div>
         )}
       </div>

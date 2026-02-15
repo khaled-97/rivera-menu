@@ -5,7 +5,7 @@ import styles from './CategoryNav.module.css';
 export default function CategoryNav({ categories, activeCategory, onCategoryChange }) {
   const navRef = useRef(null);
   const activeRef = useRef(null);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     if (activeRef.current && navRef.current) {
@@ -19,6 +19,21 @@ export default function CategoryNav({ categories, activeCategory, onCategoryChan
     }
   }, [activeCategory]);
 
+  const getCategoryName = (category) => {
+    const translated = t(`categories.${category.id}.name`);
+    // If translation returns the key itself, it means no translation exists
+    if (translated === `categories.${category.id}.name`) {
+      // Use the category's name based on current language
+      if (language === 'ar') {
+        return category.nameAr || category.nameIt || category.name;
+      } else if (language === 'he') {
+        return category.nameHe || category.name;
+      }
+      return category.name;
+    }
+    return translated;
+  };
+
   return (
     <nav className={styles.nav} ref={navRef}>
       <div className={styles.navInner}>
@@ -30,7 +45,7 @@ export default function CategoryNav({ categories, activeCategory, onCategoryChan
             onClick={() => onCategoryChange(category.id)}
           >
             <span className={styles.name}>
-              {t(`categories.${category.id}.name`)}
+              {getCategoryName(category)}
             </span>
           </button>
         ))}
