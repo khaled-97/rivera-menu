@@ -19,32 +19,44 @@ export const translations = {
         description: "ابدأ رحلتك مع مقبلاتنا الإيطالية",
       },
       breads: {
-        name: "الخبز والفوكاتشا",
-        description: "خبز حرفي طازج من فرننا الحطبي",
+        name: "الحديقة الخضراء",
+        description: "سلطات طازجة",
       },
       pizza: {
-        name: "البيتزا والكالزوني",
-        description: "بيتزا على الطريقة النابولية من فرننا الحطبي",
+        name: "العروض الخاصه",
+        description: "حبيبك طلال",
       },
       pasta: {
-        name: "المعكرونة",
+        name: "شطائر",
         description: "معكرونة طازجة مصنوعة يدوياً يومياً",
       },
       seafood: {
-        name: "أسماك",
-        description: "أطباق بحرية طازجة بلمسة متوسطية",
+        name: "بيتسا ايطاليه",
+        description: "بيتسا طازجة مصنوعة يدوياً يومياً",
       },
       steaks: {
-        name: "مشاوي",
-        description: "قطع لحم فاخرة مشوية بإتقان",
+        name: "معكرونه ايطاليه",
+        description: "معكرونه طازجه مصنوعة يدوياً يومياً",
       },
       beverages: {
-        name: "المشروبات",
-        description: "مشروبات منعشة وكوكتيلات مميزة",
+        name: "ركن السمك",
+        description: "سمك طازج مشوي بإتقان",
       },
       desserts: {
-        name: "تحلاية",
+        name: "ركن اللحوم",
+        description: "قطع لحم فاخرة مشوية بإتقان",
+      },
+      kids: {
+        name: "حصص الاطفال",
+        description: "حصص للاطفال من 3 الى 12 سنة",
+      },
+      drinks: {
+        name: "الحلويات",
         description: "حلويات مثل الكيك والشوكولاته والفواكه",
+      },
+      desserts: {
+        name: "الشرب",
+        description: "مشروبات منعشة وكوكتيلات مميزة",
       },
     },
     
@@ -162,32 +174,48 @@ export const translations = {
     // Categories
     categories: {
       antipasti: {
-        name: "אנטיפסטי",
-        description: "התחילו את המסע עם מבחר המנות הראשונות האיטלקיות שלנו",
+        name: "מנות ראשונות ריביירה",
+        description: "התחילו את המסע עם מבחר המנות הראשונות שלנו",
       },
       breads: {
-        name: "לחמים ופוקאצ׳ה",
-        description: "לחמים אומנותיים טריים מהתנור שלנו",
+        name: "הגן הירוק",
+        description: "סלטים טריים",
       },
       pizza: {
-        name: "פיצה וקלצונה",
-        description: "פיצה בסגנון נאפוליטני מהתנור העצים שלנו",
+        name: "מבצעים מיוחדים",
+        description: "מבצעים מיוחדים",
       },
       pasta: {
-        name: "פסטה",
-        description: "פסטה טרייה בעבודת יד שנעשית מדי יום",
+        name: "כריכים",
+        description: "כריכים טעימים ומגוונים",
       },
       seafood: {
-        name: "מהים",
-        description: "מנות פירות ים טריות בסגנון ים תיכוני",
+        name: "פיצה איטלקית",
+        description: "פיצה טרייה בעבודת יד מדי יום",
       },
       steaks: {
-        name: "מהגריל",
-        description: "נתחי בשר משובחים צלויים לשלמות",
+        name: "פסטה איטלקית",
+        description: "פסטה טרייה בעבודת יד מדי יום",
       },
       beverages: {
+        name: "פינת הדגים",
+        description: "דגים טריים צלויים בשלמות",
+      },
+      desserts: {
+        name: "פינת הבשר",
+        description: "נתחי בשר משובחים צלויים לשלמות",
+      },
+      kids: {
+        name: "מנות ילדים",
+        description: "מנות לילדים מגיל 3 עד 12",
+      },
+      drinks: {
         name: "משקאות",
         description: "משקאות מרעננים וקוקטיילים ייחודיים",
+      },
+      sweets: {
+        name: "קינוחים",
+        description: "קינוחים כמו עוגות, שוקולד ופירות",
       },
     },
     
