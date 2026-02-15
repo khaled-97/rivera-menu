@@ -7,13 +7,13 @@ export const menuData = {
   categories: [
     {
       id: "antipasti",
-      name: "Antipasti",
-      nameAr: "مقبلات ريفيرا",
-      nameHe: "מנות ראשונות ריביירה",
-      nameIt: "مقبلات ريفيرا",
-      description: "Start your journey with our selection of Italian starters",
-      descriptionAr: "ابدأ رحلتك مع مقبلاتنا الإيطالية",
-      descriptionHe: "התחילו את המסע עם מבחר המנות הראשונות שלנו",
+      name: "Appetizers",
+      nameAr: "مقبلات",
+      nameHe: "מנות ראשונות",
+      nameIt: "مقبلات",
+      description: "Start your journey with our appetizers",
+      descriptionAr: "ابدأ رحلتك مع مقبلاتنا",
+      descriptionHe: "התחילו את המסע עם המנות הראשונות שלנו",
       items: [
         {
           id: 1,
@@ -86,9 +86,9 @@ export const menuData = {
     {
       id: "pizza",
       name: "Special Offers",
-      nameAr: "العروض الخاصه",
+      nameAr: "العروض الخاصة",
       nameHe: "מבצעים מיוחדים",
-      nameIt: "العروض الخاصه",
+      nameIt: "العروض الخاصة",
       description: "Special offers",
       descriptionAr: "عروض مميزة",
       descriptionHe: "מבצעים מיוחדים",
@@ -154,9 +154,9 @@ export const menuData = {
     {
       id: "seafood",
       name: "Italian Pizza",
-      nameAr: "بيتزا ايطاليه",
+      nameAr: "بيتزا ايطالية",
       nameHe: "פיצה איטלקית",
-      nameIt: "بيتزا ايطاليه",
+      nameIt: "بيتزا ايطالية",
       description: "Fresh handmade pizza",
       descriptionAr: "بيتزا طازجة مصنوعة يدوياً يومياً",
       descriptionHe: "פיצה טרייה בעבודת יד מדי יום",
@@ -200,11 +200,11 @@ export const menuData = {
     {
       id: "steaks",
       name: "Italian Pasta",
-      nameAr: "معكرونه ايطاليه",
+      nameAr: "معكرونة ايطالية",
       nameHe: "פסטה איטלקית",
-      nameIt: "معكرونه ايطاليه",
+      nameIt: "معكرونة ايطالية",
       description: "Fresh handmade pasta",
-      descriptionAr: "معكرونه طازجه مصنوعة يدوياً يومياً",
+      descriptionAr: "معكرونة طازجة مصنوعة يدوياً يومياً",
       descriptionHe: "פסטה טרייה בעבודת יד מדי יום",
       items: [
         {
@@ -307,6 +307,17 @@ export const menuData = {
       description: "Sweet desserts",
       descriptionAr: "حلويات مثل الكيك والشوكولاته والفواكه",
       descriptionHe: "קינוחים כמו עוגות, שוקולד ופירות",
+      items: [],
+    },
+    {
+      id: "drinks",
+      name: "Drinks",
+      nameAr: "الشرب",
+      nameHe: "משקאות",
+      nameIt: "الشرب",
+      description: "Refreshing drinks",
+      descriptionAr: "مشروبات منعشة وكوكتيلات مميزة",
+      descriptionHe: "משקאות מרעננים וקוקטיילים ייחודיים",
       items: [],
     },
   ],
