@@ -10,8 +10,7 @@ export default function LanguageSwitcher() {
       onClick={toggleLanguage}
       aria-label={`Switch to ${language === 'ar' ? 'Hebrew' : 'Arabic'}`}
     >
-      <span className={styles.icon}>🌐</span>
-      <span className={styles.label}>{t('switchLang')}</span>
+      {t('switchLang')}
     </button>
   );
 }
