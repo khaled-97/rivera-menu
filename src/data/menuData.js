@@ -21,7 +21,7 @@ export const menuData = {
           nameIt: "Bocconcini di Halloumi",
           description: "Golden fried halloumi cheese bites served with fresh herbs and honey drizzle",
           price: 42,
-          image: "halomi_bites.png",
+          image: "halomi_bites.JPG",
           tags: ["vegetarian", "popular"],
         },
         {
@@ -30,7 +30,7 @@ export const menuData = {
           nameIt: "Bastoncini di Halloumi",
           description: "Crispy halloumi cheese fingers with tangy dipping sauce",
           price: 38,
-          image: "halomi_fingers.png",
+          image: "halomi_fingers.JPG",
           tags: ["vegetarian"],
         },
         {
@@ -363,7 +363,7 @@ export const menuData = {
           nameIt: "Hamburger Rivera",
           description: "Premium beef burger with lettuce, tomato, and special sauce",
           price: 58,
-          image: "burger_rivera.png",
+          image: "burger_rivera.JPG",
           tags: ["popular"],
         },
         {
@@ -372,7 +372,7 @@ export const menuData = {
           nameIt: "Cheeseburger Rivera",
           description: "Juicy beef patty with melted cheese, lettuce, and tomato",
           price: 62,
-          image: "burger_rivera_cheese.png",
+          image: "burger_rivera_cheese.JPG",
           tags: ["popular"],
         },
         {
