@@ -12,53 +12,8 @@ export const translations = {
     restaurantName: "RIVERA",
     restaurantTagline: "مطبخ إيطالي",
     
-    // Categories
-    categories: {
-      antipasti: {
-        name: "مقبلات ريفيرا",
-        description: "ابدأ رحلتك مع مقبلاتنا الإيطالية",
-      },
-      breads: {
-        name: "الحديقة الخضراء",
-        description: "سلطات طازجة",
-      },
-      pizza: {
-        name: "العروض الخاصه",
-        description: "حبيبك طلال",
-      },
-      pasta: {
-        name: "شطائر",
-        description: "معكرونة طازجة مصنوعة يدوياً يومياً",
-      },
-      seafood: {
-        name: "بيتسا ايطاليه",
-        description: "بيتسا طازجة مصنوعة يدوياً يومياً",
-      },
-      steaks: {
-        name: "معكرونه ايطاليه",
-        description: "معكرونه طازجه مصنوعة يدوياً يومياً",
-      },
-      beverages: {
-        name: "ركن السمك",
-        description: "سمك طازج مشوي بإتقان",
-      },
-      desserts: {
-        name: "ركن اللحوم",
-        description: "قطع لحم فاخرة مشوية بإتقان",
-      },
-      kids: {
-        name: "حصص الاطفال",
-        description: "حصص للاطفال من 3 الى 12 سنة",
-      },
-      drinks: {
-        name: "الحلويات",
-        description: "حلويات مثل الكيك والشوكولاته والفواكه",
-      },
-      desserts: {
-        name: "الشرب",
-        description: "مشروبات منعشة وكوكتيلات مميزة",
-      },
-    },
+    // Categories - Now handled in menuData.js with nameAr/nameHe fields
+    categories: {},
     
     // Menu Items
     items: {
@@ -171,53 +126,8 @@ export const translations = {
     restaurantName: "RIVERA",
     restaurantTagline: "מטבח איטלקי",
     
-    // Categories
-    categories: {
-      antipasti: {
-        name: "מנות ראשונות ריביירה",
-        description: "התחילו את המסע עם מבחר המנות הראשונות שלנו",
-      },
-      breads: {
-        name: "הגן הירוק",
-        description: "סלטים טריים",
-      },
-      pizza: {
-        name: "מבצעים מיוחדים",
-        description: "מבצעים מיוחדים",
-      },
-      pasta: {
-        name: "כריכים",
-        description: "כריכים טעימים ומגוונים",
-      },
-      seafood: {
-        name: "פיצה איטלקית",
-        description: "פיצה טרייה בעבודת יד מדי יום",
-      },
-      steaks: {
-        name: "פסטה איטלקית",
-        description: "פסטה טרייה בעבודת יד מדי יום",
-      },
-      beverages: {
-        name: "פינת הדגים",
-        description: "דגים טריים צלויים בשלמות",
-      },
-      desserts: {
-        name: "פינת הבשר",
-        description: "נתחי בשר משובחים צלויים לשלמות",
-      },
-      kids: {
-        name: "מנות ילדים",
-        description: "מנות לילדים מגיל 3 עד 12",
-      },
-      drinks: {
-        name: "משקאות",
-        description: "משקאות מרעננים וקוקטיילים ייחודיים",
-      },
-      sweets: {
-        name: "קינוחים",
-        description: "קינוחים כמו עוגות, שוקולד ופירות",
-      },
-    },
+    // Categories - Now handled in menuData.js with nameAr/nameHe fields
+    categories: {},
     
     // Menu Items
     items: {
