@@ -8,8 +8,12 @@ export const menuData = {
     {
       id: "antipasti",
       name: "Antipasti",
-      nameIt: "Antipasti",
+      nameAr: "مقبلات ريفيرا",
+      nameHe: "מנות ראשונות ריביירה",
+      nameIt: "مقبلات ريفيرا",
       description: "Start your journey with our selection of Italian starters",
+      descriptionAr: "ابدأ رحلتك مع مقبلاتنا الإيطالية",
+      descriptionHe: "התחילו את המסע עם מבחר המנות הראשונות שלנו",
       items: [
         {
           id: 1,
@@ -51,9 +55,13 @@ export const menuData = {
     },
     {
       id: "breads",
-      name: "Breads & Focaccia",
-      nameIt: "Pane e Focaccia",
-      description: "Wood-fired artisan breads fresh from our oven",
+      name: "Green Garden",
+      nameAr: "الحديقة الخضراء",
+      nameHe: "הגן הירוק",
+      nameIt: "الحديقة الخضراء",
+      description: "Fresh salads",
+      descriptionAr: "سلطات طازجة",
+      descriptionHe: "סלטים טריים",
       items: [
         {
           id: 5,
@@ -77,9 +85,13 @@ export const menuData = {
     },
     {
       id: "pizza",
-      name: "Pizza & Calzone",
-      nameIt: "Pizza e Calzone",
-      description: "Neapolitan-style pizza from our wood-burning oven",
+      name: "Special Offers",
+      nameAr: "العروض الخاصه",
+      nameHe: "מבצעים מיוחדים",
+      nameIt: "العروض الخاصه",
+      description: "Special offers",
+      descriptionAr: "عروض مميزة",
+      descriptionHe: "מבצעים מיוחדים",
       items: [
         {
           id: 7,
@@ -103,9 +115,13 @@ export const menuData = {
     },
     {
       id: "pasta",
-      name: "Pasta",
-      nameIt: "Pasta",
-      description: "Fresh handmade pasta crafted daily",
+      name: "Sandwiches",
+      nameAr: "شطائر",
+      nameHe: "כריכים",
+      nameIt: "شطائر",
+      description: "Delicious sandwiches",
+      descriptionAr: "شطائر لذيذة ومتنوعة",
+      descriptionHe: "כריכים טעימים ומגוונים",
       items: [
         {
           id: 9,
@@ -137,9 +153,13 @@ export const menuData = {
     },
     {
       id: "seafood",
-      name: "From the Sea",
-      nameIt: "Dal Mare",
-      description: "Fresh catches prepared with Mediterranean flair",
+      name: "Italian Pizza",
+      nameAr: "بيتزا ايطاليه",
+      nameHe: "פיצה איטלקית",
+      nameIt: "بيتزا ايطاليه",
+      description: "Fresh handmade pizza",
+      descriptionAr: "بيتزا طازجة مصنوعة يدوياً يومياً",
+      descriptionHe: "פיצה טרייה בעבודת יד מדי יום",
       items: [
         {
           id: 12,
@@ -179,9 +199,13 @@ export const menuData = {
     },
     {
       id: "steaks",
-      name: "From the Grill",
-      nameIt: "Alla Griglia",
-      description: "Premium cuts grilled to perfection",
+      name: "Italian Pasta",
+      nameAr: "معكرونه ايطاليه",
+      nameHe: "פסטה איטלקית",
+      nameIt: "معكرونه ايطاليه",
+      description: "Fresh handmade pasta",
+      descriptionAr: "معكرونه طازجه مصنوعة يدوياً يومياً",
+      descriptionHe: "פסטה טרייה בעבודת יד מדי יום",
       items: [
         {
           id: 16,
@@ -214,9 +238,13 @@ export const menuData = {
     },
     {
       id: "beverages",
-      name: "Beverages",
-      nameIt: "Bevande",
-      description: "Refreshing drinks and signature cocktails",
+      name: "Fish Corner",
+      nameAr: "ركن السمك",
+      nameHe: "פינת הדגים",
+      nameIt: "ركن السمك",
+      description: "Fresh grilled fish",
+      descriptionAr: "سمك طازج مشوي بإتقان",
+      descriptionHe: "דגים טריים צלויים בשלמות",
       items: [
         {
           id: 19,
@@ -236,6 +264,50 @@ export const menuData = {
           tags: ["refreshing"],
         },
       ],
+    },
+    {
+      id: "desserts",
+      name: "Meat Corner",
+      nameAr: "ركن اللحوم",
+      nameHe: "פינת הבשר",
+      nameIt: "ركن اللحوم",
+      description: "Premium grilled meats",
+      descriptionAr: "قطع لحم فاخرة مشوية بإتقان",
+      descriptionHe: "נתחי בשר משובחים צלויים לשלמות",
+      items: [],
+    },
+    {
+      id: "kids",
+      name: "Kids Meals",
+      nameAr: "حصص الاطفال",
+      nameHe: "מנות ילדים",
+      nameIt: "حصص الاطفال",
+      description: "Kids meals for ages 3-12",
+      descriptionAr: "حصص للاطفال من 3 الى 12 سنة",
+      descriptionHe: "מנות לילדים מגיל 3 עד 12",
+      items: [],
+    },
+    {
+      id: "drinks",
+      name: "Drinks",
+      nameAr: "المشروبات",
+      nameHe: "משקאות",
+      nameIt: "المشروبات",
+      description: "Refreshing drinks and cocktails",
+      descriptionAr: "مشروبات منعشة وكوكتيلات مميزة",
+      descriptionHe: "משקאות מרעננים וקוקטיילים ייחודיים",
+      items: [],
+    },
+    {
+      id: "sweets",
+      name: "Desserts",
+      nameAr: "الحلويات",
+      nameHe: "קינוחים",
+      nameIt: "الحلويات",
+      description: "Sweet desserts",
+      descriptionAr: "حلويات مثل الكيك والشوكولاته والفواكه",
+      descriptionHe: "קינוחים כמו עוגות, שוקולד ופירות",
+      items: [],
     },
   ],
 };
