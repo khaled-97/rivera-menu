@@ -52,7 +52,7 @@ function Login({ onLogin }) {
         
         <div className={styles.hint}>
           <p>كلمة المرور الافتراضية: <code>rivera2026</code></p>
-          <p className={styles.note}>غيّر هذا في Login.jsx للأمان</p>
+          <p className={styles.note}>needs to be changed in production</p>
         </div>
       </div>
     </div>

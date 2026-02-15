@@ -68,6 +68,10 @@
   opacity: 1;
 }
 
+.image.drinkImage {
+  object-fit: contain;
+}
+
 .item:hover .image {
   transform: scale(1.05);
 }

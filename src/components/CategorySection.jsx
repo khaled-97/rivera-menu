@@ -47,7 +47,7 @@ export default function CategorySection({ category, isActive }) {
       
       <div className={styles.grid}>
         {category.items.map((item, index) => (
-          <MenuItem key={item.id} item={item} index={index} />
+          <MenuItem key={item.id} item={item} index={index} categoryId={category.id} />
         ))}
       </div>
     </section>

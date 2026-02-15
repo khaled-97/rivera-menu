@@ -2,10 +2,13 @@ import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import styles from './MenuItem.module.css';
 
-export default function MenuItem({ item, index }) {
+export default function MenuItem({ item, index, categoryId }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
   const { t, language } = useLanguage();
+  
+  // Check if this is a drink item
+  const isDrink = categoryId === 'drinks';
 
   const handleImageLoad = () => {
     setImageLoaded(true);
@@ -63,7 +66,7 @@ export default function MenuItem({ item, index }) {
           <img
             src={`/images/${item.image}`}
             alt={translatedName}
-            className={`${styles.image} ${imageLoaded ? styles.loaded : ''}`}
+            className={`${styles.image} ${imageLoaded ? styles.loaded : ''} ${isDrink ? styles.drinkImage : ''}`}
             onLoad={handleImageLoad}
             onError={handleImageError}
             loading="lazy"
