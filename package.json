@@ -1,0 +1,36 @@
+{
+  "name": "riveraitalian",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "check-types": "turbo check-types",
+    "dev:native": "turbo -F native dev",
+    "dev:web": "turbo -F web dev",
+    "db:push": "turbo -F @riveraitalian/db db:push",
+    "db:studio": "turbo -F @riveraitalian/db db:studio",
+    "db:generate": "turbo -F @riveraitalian/db db:generate",
+    "db:migrate": "turbo -F @riveraitalian/db db:migrate",
+    "db:start": "turbo -F @riveraitalian/db db:start",
+    "db:watch": "turbo -F @riveraitalian/db db:watch",
+    "db:stop": "turbo -F @riveraitalian/db db:stop",
+    "db:down": "turbo -F @riveraitalian/db db:down"
+  },
+  "dependencies": {
+    "@riveraitalian/env": "workspace:*",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@riveraitalian/config": "workspace:*",
+    "@types/node": "catalog:",
+    "turbo": "^2.6.3",
+    "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@10.7.1"
+}

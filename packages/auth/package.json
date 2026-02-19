@@ -1,0 +1,24 @@
+{
+  "name": "@riveraitalian/auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@riveraitalian/db": "workspace:*",
+    "@riveraitalian/env": "workspace:*",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@riveraitalian/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}
