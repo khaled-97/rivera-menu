@@ -1,7 +1,7 @@
 import type { QueryClient } from "@tanstack/react-query";
 
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
+import { HeadContent, Outlet, Scripts, createRootRouteWithContext, useRouterState } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import type { orpc } from "@/utils/orpc";
@@ -26,7 +26,7 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "My App",
+        title: "Rivera Italian Kitchen",
       },
     ],
     links: [
@@ -41,6 +41,26 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 });
 
 function RootDocument() {
+  const routerState = useRouterState();
+  const pathname = routerState.location.pathname;
+  
+  const isMenuPage = pathname === "/" || pathname === "/menu-dashboard";
+  
+  if (isMenuPage) {
+    return (
+      <html lang="ar" dir="rtl">
+        <head>
+          <HeadContent />
+        </head>
+        <body>
+          <Outlet />
+          <Toaster richColors />
+          <Scripts />
+        </body>
+      </html>
+    );
+  }
+
   return (
     <html lang="en" className="dark">
       <head>

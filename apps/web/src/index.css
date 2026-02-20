@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Heebo:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -125,4 +126,111 @@
   html {
     @apply font-sans;
   }
+}
+
+/* Menu App Styles */
+:root {
+  /* Modern Trattoria Color Palette */
+  --cream: #F5F2EC;
+  --cream-light: #FDFCFA;
+  --warm-white: #FAF8F5;
+  --olive: #5C6B4A;
+  --olive-light: #7A8B65;
+  --olive-dark: #4A5639;
+  --charcoal: #2C2C2C;
+  --slate: #3D3D3D;
+  --stone: #6B6B6B;
+  --gold: #B8965C;
+  --gold-light: #D4B87A;
+  
+  /* Typography - defaults, will be overridden by language context */
+  --font-display: 'Noto Naskh Arabic', 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Noto Sans Arabic', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Menu Fonts */
+  --font-header: 'Sukar', 'Noto Sans Arabic', sans-serif;
+  --font-text: 'Tajawal', 'Noto Sans Arabic', sans-serif;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+
+/* Scrollbar styling for menu */
+.menu-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.menu-scrollbar::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+.menu-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--olive-light);
+  border-radius: 3px;
+}
+
+.menu-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--olive);
+}
+
+/* Selection styling for menu */
+.menu-selection::selection {
+  background: var(--olive);
+  color: var(--cream);
+}
+
+/* Menu Animations */
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes menuSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menuScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.menu-fade-in {
+  animation: menuFadeIn var(--transition-slow) ease forwards;
+}
+
+.menu-slide-up {
+  animation: menuSlideUp var(--transition-slow) ease forwards;
+}
+
+.menu-scale-in {
+  animation: menuScaleIn var(--transition-base) ease forwards;
 }

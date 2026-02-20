@@ -1,0 +1,28 @@
+.app {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+}
+
+.main {
+  flex: 1;
+}
+
+.loading,
+.error,
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  font-size: 1.25rem;
+  color: #666;
+  text-align: center;
+  padding: 2rem;
+}
+
+.error {
+  color: #dc3545;
+}

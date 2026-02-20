@@ -1,0 +1,104 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(to left, transparent, #ddd, transparent);
+  margin: 0.5rem 0;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.info {
+  font-weight: 400;
+  color: #666;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.required {
+  color: #dc3545;
+}
+
+.formGroup input,
+.formGroup textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #d4af37;
+}
+
+.formGroup input:disabled {
+  background: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
+
+.formActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.btnSubmit,
+.btnCancel {
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnSubmit {
+  background: #d4af37;
+  color: white;
+  flex: 1;
+}
+
+.btnSubmit:hover {
+  background: #c49d2e;
+  transform: translateY(-1px);
+}
+
+.btnCancel {
+  background: #666;
+  color: white;
+}
+
+.btnCancel:hover {
+  background: #555;
+}
