@@ -3,6 +3,21 @@ import { useLanguage } from "@/context/LanguageContext";
 import type { MenuItem as MenuItemType } from "@/data/menuData";
 import styles from "./MenuItem.module.css";
 
+const categoryToFolder: Record<string, string> = {
+  antipasti: "antipasti",
+  sandwiches: "sandwiches",
+  drinks: "drinks",
+  coupons: "multi_plates",
+  "special-offers": "multi_plates",
+  pasta: "macaroni",
+  desserts: "deserts",
+  kids: "multi_plates",
+  meat: "meat",
+  fish: "fish",
+  pizza: "pizza",
+  salads: "green_garden",
+};
+
 interface MenuItemProps {
   item: MenuItemType;
   index: number;
@@ -15,6 +30,7 @@ export default function MenuItem({ item, index, categoryId }: MenuItemProps) {
   const { t, language } = useLanguage();
   
   const isDrink = categoryId === "drinks";
+  const imageFolder = categoryToFolder[categoryId] || "multi_plates";
 
   const handleImageLoad = () => {
     setImageLoaded(true);
@@ -59,7 +75,7 @@ export default function MenuItem({ item, index, categoryId }: MenuItemProps) {
         )}
         {item.image && !imageError ? (
           <img
-            src={`/images/${item.image}`}
+            src={`/pictures/${imageFolder}/${item.image}`}
             alt={translatedName}
             className={`${styles.image} ${imageLoaded ? styles.loaded : ""} ${isDrink ? styles.drinkImage : ""}`}
             onLoad={handleImageLoad}

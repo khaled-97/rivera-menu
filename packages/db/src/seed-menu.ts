@@ -142,7 +142,7 @@ const menuData = {
           descriptionAr: "مكعبات جبن حلومي مقلية مقرمشة",
           descriptionHe: "קוביות גבינת חלומי מטוגנת קראנצ'ית",
           price: 39,
-          image: "halomi_bites.JPG",
+          image: "halomi_bites.png",
           tags: ["vegetarian", "popular"],
         },
         {
@@ -379,9 +379,7 @@ async function seed() {
   await db.delete(menuItem);
   await db.delete(menuCategory);
 
-  for (let catIndex = 0; catIndex < menuData.categories.length; catIndex++) {
-    const cat = menuData.categories[catIndex];
-    
+  for (const [catIndex, cat] of menuData.categories.entries()) {
     console.log(`  📁 Creating category: ${cat.nameAr}`);
     
     await db.insert(menuCategory).values({
@@ -393,14 +391,14 @@ async function seed() {
       sortOrder: catIndex,
     });
 
-    for (let itemIndex = 0; itemIndex < cat.items.length; itemIndex++) {
-      const item = cat.items[itemIndex];
+    for (const [itemIndex, item] of cat.items.entries()) {
+      const itemData = item as Record<string, unknown>;
       await db.insert(menuItem).values({
         categoryId: cat.id,
         nameAr: item.nameAr,
         nameHe: item.nameHe,
-        descriptionAr: item.descriptionAr,
-        descriptionHe: item.descriptionHe,
+        descriptionAr: (itemData.descriptionAr as string) ?? null,
+        descriptionHe: (itemData.descriptionHe as string) ?? null,
         price: item.price,
         image: item.image || null,
         tags: item.tags || [],

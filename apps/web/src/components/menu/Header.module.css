@@ -2,12 +2,30 @@
   padding: var(--space-xs) var(--space-md);
   text-align: center;
   background: #006962;
-  position: relative;
-  border-bottom: 1px solid rgba(92, 107, 74, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
   backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(92, 107, 74, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.headerScrolled {
+  padding: 0.25rem var(--space-md);
+}
+
+.headerScrolled .logoContainer {
+  padding: 0.4rem 0;
+}
+
+.headerScrolled .logo {
+  height: clamp(40px, 8vw, 55px);
+}
+
+.headerScrolled .switcherContainer,
+.headerScrolled .leftLinks {
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .switcherContainer {
@@ -15,6 +33,7 @@
   top: 1rem;
   right: 1rem;
   z-index: 10;
+  transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [dir="ltr"] .switcherContainer {
@@ -29,6 +48,7 @@
   display: flex;
   gap: 0.5rem;
   z-index: 10;
+  transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [dir="ltr"] .leftLinks {
@@ -43,13 +63,12 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #006962;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
   font-size: 1.1rem;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .fontLink {
@@ -59,15 +78,13 @@
 
 .dashboardLink:hover,
 .fontLink:hover {
-  background: rgba(255, 255, 255, 1);
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
 }
 
 .dashboardLink:active,
 .fontLink:active {
-  transform: translateY(0) scale(1);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transform: scale(1);
 }
 
 .logoContainer {
@@ -75,6 +92,8 @@
   align-items: center;
   justify-content: center;
   padding: 1rem 0;
+  transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: padding;
 }
 
 .ornament {
@@ -85,9 +104,10 @@
 }
 
 .logo {
-  height: clamp(100px, 20vw, 160px);
+  height: clamp(70px, 14vw, 110px);
   width: auto;
   margin: 0;
+  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tagline {

@@ -2,7 +2,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import styles from "./LanguageSwitcher.module.css";
 
 export default function LanguageSwitcher() {
-  const { t, toggleLanguage, language } = useLanguage();
+  const { toggleLanguage, language } = useLanguage();
 
   return (
     <button 
@@ -10,7 +10,7 @@ export default function LanguageSwitcher() {
       onClick={toggleLanguage}
       aria-label={`Switch to ${language === "ar" ? "Hebrew" : "Arabic"}`}
     >
-      {t("switchLang")}
+      🌐
     </button>
   );
 }
