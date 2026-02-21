@@ -15,25 +15,25 @@
 .title {
   font-family: var(--font-header);
   font-size: clamp(1.5rem, 5vw, 2rem);
-  font-weight: bold;
+  font-weight: var(--font-header-weight, 700);
   color: var(--charcoal);
   margin: 0;
   letter-spacing: 0.05em;
 }
 
 .titleIt {
-  font-family: var(--font-display);
+  font-family: var(--font-description);
   font-size: clamp(0.875rem, 2.5vw, 1rem);
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--olive);
   margin: var(--space-xs) 0 0 0;
 }
 
 .description {
-  font-family: var(--font-text);
+  font-family: var(--font-description);
   font-size: 0.8rem;
-  font-weight: normal;
+  font-weight: 400;
   color: var(--stone);
   max-width: 400px;
   margin: 0 auto;

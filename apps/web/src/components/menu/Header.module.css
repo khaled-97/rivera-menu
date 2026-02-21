@@ -118,9 +118,9 @@
 }
 
 .tagline {
-  font-family: var(--font-display);
+  font-family: var(--font-description);
   font-size: clamp(0.75rem, 2.5vw, 1rem);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--olive);
   letter-spacing: 0.05em;
   margin: 0;

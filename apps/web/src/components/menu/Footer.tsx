@@ -22,6 +22,12 @@ export default function Footer() {
           <span className={styles.separator}>·</span>
           <span className={styles.type}>{t("restaurantTagline")}</span>
         </div>
+        <p className={styles.credit}>
+          {t("menuBuiltBy")}{" "}
+          <a href="tel:0547051084" className={styles.creditLink}>
+            Khaled Jauosi | 0547051084
+          </a>
+        </p>
       </div>
     </footer>
   );

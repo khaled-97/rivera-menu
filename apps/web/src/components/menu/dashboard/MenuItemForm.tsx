@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { Category, MenuItem } from "@/data/menuData";
+import { getPictureFolder } from "@/lib/menu-pictures";
 import styles from "./MenuItemForm.module.css";
 
 interface MenuItemFormProps {
@@ -37,8 +38,13 @@ export default function MenuItemForm({ categories, onSubmit, editingItem, onCanc
   });
 
   const [tagInput, setTagInput] = useState("");
+  const [uploadStatus, setUploadStatus] = useState<"idle" | "uploading" | "done" | "error">("idle");
+  const [uploadError, setUploadError] = useState("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    setUploadStatus("idle");
+    setUploadError("");
     if (editingItem) {
       setFormData({
         name: "",
@@ -70,10 +76,14 @@ export default function MenuItemForm({ categories, onSubmit, editingItem, onCanc
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => {
+      const next = { ...prev, [name]: value };
+      if (name === "categoryId" && prev.image) {
+        next.image = "";
+        setUploadStatus("idle");
+      }
+      return next;
+    });
   };
 
   const handleAddTag = () => {
@@ -91,6 +101,33 @@ export default function MenuItemForm({ categories, onSubmit, editingItem, onCanc
       ...prev,
       tags: prev.tags.filter((tag) => tag !== tagToRemove),
     }));
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadError("");
+    setUploadStatus("uploading");
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("categoryId", formData.categoryId);
+    try {
+      const res = await fetch("/api/upload", { method: "POST", body: fd });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Upload failed");
+      setFormData((prev) => ({ ...prev, image: data.filename }));
+      setUploadStatus("done");
+    } catch (err) {
+      setUploadError(err instanceof Error ? err.message : "فشل رفع الصورة");
+      setUploadStatus("error");
+    }
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
+  const handleRemoveImage = () => {
+    setFormData((prev) => ({ ...prev, image: "" }));
+    setUploadStatus("idle");
+    setUploadError("");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -126,6 +163,8 @@ export default function MenuItemForm({ categories, onSubmit, editingItem, onCanc
         image: "",
         tags: [],
       });
+      setUploadStatus("idle");
+      setUploadError("");
     }
   };
 
@@ -145,7 +184,7 @@ export default function MenuItemForm({ categories, onSubmit, editingItem, onCanc
     <form onSubmit={handleSubmit} className={styles.form} dir="rtl">
       <div className={styles.formGroup}>
         <label htmlFor="nameAr">
-          اسم الصنف (عربي) <span className={styles.required}>*</span>
+          اسم الطبق (عربي) <span className={styles.required}>*</span>
         </label>
         <input
           type="text"
@@ -242,19 +281,35 @@ export default function MenuItemForm({ categories, onSubmit, editingItem, onCanc
       </div>
 
       <div className={styles.formGroup}>
-        <label htmlFor="image">اسم ملف الصورة</label>
+        <label>صورة الطبق</label>
         <input
-          type="text"
-          id="image"
-          name="image"
-          value={formData.image}
-          onChange={handleChange}
-          placeholder="مثال: pizza-margherita.jpg"
-          dir="ltr"
+          ref={fileInputRef}
+          type="file"
+          accept="image/jpeg,image/png,image/gif,image/webp"
+          onChange={handleImageUpload}
+          className={styles.fileInput}
+          disabled={uploadStatus === "uploading"}
         />
-        <small className={styles.hint}>
-          ارفع الصور إلى المجلد العام وأدخل اسم الملف هنا
-        </small>
+        {uploadStatus === "uploading" && (
+          <small className={styles.uploadStatus}>جاري رفع الصورة...</small>
+        )}
+        {uploadError && <small className={styles.uploadError}>{uploadError}</small>}
+        {formData.image && (
+          <div className={styles.imagePreviewWrap}>
+            <img
+              src={`/pictures/${getPictureFolder(formData.categoryId)}/${formData.image}`}
+              alt=""
+              className={styles.imagePreview}
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = "none";
+              }}
+            />
+            <span className={styles.imageFilename} dir="ltr">{formData.image}</span>
+            <button type="button" onClick={handleRemoveImage} className={styles.btnRemoveImage}>
+              إزالة الصورة
+            </button>
+          </div>
+        )}
       </div>
 
       <div className={styles.formGroup}>
@@ -318,8 +373,12 @@ export default function MenuItemForm({ categories, onSubmit, editingItem, onCanc
       </div>
 
       <div className={styles.formActions}>
-        <button type="submit" className={styles.btnSubmit}>
-          {editingItem ? "تحديث الصنف" : "إضافة صنف"}
+        <button
+          type="submit"
+          className={styles.btnSubmit}
+          disabled={uploadStatus === "uploading"}
+        >
+          {uploadStatus === "uploading" ? "جاري رفع الصورة..." : editingItem ? "تحديث الطبق" : "إضافة طبق"}
         </button>
         {editingItem && (
           <button type="button" onClick={onCancel} className={styles.btnCancel}>

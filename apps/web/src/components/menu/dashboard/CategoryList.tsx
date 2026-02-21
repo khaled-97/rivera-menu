@@ -28,7 +28,7 @@ export default function CategoryList({ categories, onEdit, onDelete }: CategoryL
               )}
             </div>
             <div className={styles.itemCount}>
-              {category.items.length} {category.items.length === 1 ? "صنف" : "أصناف"}
+              {category.items.length} {category.items.length === 1 ? "طبق" : "أطباق"}
             </div>
           </div>
 
@@ -43,7 +43,7 @@ export default function CategoryList({ categories, onEdit, onDelete }: CategoryL
 
           {category.items.length > 0 && (
             <div className={styles.items}>
-              <p className={styles.itemsLabel}>الأصناف في هذه الفئة:</p>
+              <p className={styles.itemsLabel}>الأطباق في هذه الفئة:</p>
               <ul className={styles.itemsList}>
                 {category.items.map((item) => (
                   <li key={item.id}>
@@ -67,7 +67,7 @@ export default function CategoryList({ categories, onEdit, onDelete }: CategoryL
               disabled={category.items.length > 0}
               title={
                 category.items.length > 0
-                  ? "احذف جميع الأصناف من هذه الفئة أولاً"
+                  ? "احذف جميع الأطباق من هذه الفئة أولاً"
                   : "حذف هذه الفئة"
               }
             >

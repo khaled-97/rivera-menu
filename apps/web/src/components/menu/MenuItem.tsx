@@ -1,22 +1,8 @@
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import type { MenuItem as MenuItemType } from "@/data/menuData";
+import { getPictureFolder } from "@/lib/menu-pictures";
 import styles from "./MenuItem.module.css";
-
-const categoryToFolder: Record<string, string> = {
-  antipasti: "antipasti",
-  sandwiches: "sandwiches",
-  drinks: "drinks",
-  coupons: "green_garden",
-  "special-offers": "macaroni",
-  pasta: "macaroni",
-  desserts: "deserts",
-  kids: "kids",
-  meat: "meat",
-  fish: "fish",
-  pizza: "pizza",
-  salads: "green_garden",
-};
 
 interface MenuItemProps {
   item: MenuItemType;
@@ -30,7 +16,7 @@ export default function MenuItem({ item, index, categoryId }: MenuItemProps) {
   const { t, language } = useLanguage();
   
   const isDrink = categoryId === "drinks";
-  const imageFolder = categoryToFolder[categoryId] || "multi_plates";
+  const imageFolder = getPictureFolder(categoryId);
 
   const handleImageLoad = () => {
     setImageLoaded(true);

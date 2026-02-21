@@ -45,7 +45,7 @@
 .name {
   font-family: var(--font-header);
   font-size: 0.8rem;
-  font-weight: bold;
+  font-weight: var(--font-header-weight, 700);
   color: var(--charcoal);
   transition: color var(--transition-fast);
   white-space: nowrap;

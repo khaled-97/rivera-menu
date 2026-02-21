@@ -30,6 +30,19 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
         "--font-body",
         "'Noto Sans Arabic', 'Outfit', sans-serif"
       );
+      document.documentElement.style.setProperty(
+        "--font-header",
+        "'Tajawal', 'Noto Sans Arabic', sans-serif"
+      );
+      document.documentElement.style.setProperty(
+        "--font-description",
+        "'Tajawal', 'Noto Sans Arabic', sans-serif"
+      );
+      document.documentElement.style.setProperty(
+        "--font-text",
+        "'Tajawal', 'Noto Sans Arabic', sans-serif"
+      );
+      document.documentElement.style.setProperty("--font-header-weight", "700");
     } else {
       document.documentElement.style.setProperty(
         "--font-display",
@@ -39,6 +52,19 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
         "--font-body",
         "'Heebo', 'Outfit', sans-serif"
       );
+      document.documentElement.style.setProperty(
+        "--font-header",
+        "'Segoe UI', Tahoma, sans-serif"
+      );
+      document.documentElement.style.setProperty(
+        "--font-description",
+        "'Segoe UI', Tahoma, sans-serif"
+      );
+      document.documentElement.style.setProperty(
+        "--font-text",
+        "'Segoe UI', Tahoma, sans-serif"
+      );
+      document.documentElement.style.setProperty("--font-header-weight", "600");
     }
   }, [language]);
 

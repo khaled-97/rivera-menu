@@ -147,9 +147,11 @@
   --font-display: 'Noto Naskh Arabic', 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Noto Sans Arabic', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   
-  /* Menu Fonts */
-  --font-header: 'Sukar', 'Noto Sans Arabic', sans-serif;
+  /* Menu Fonts: Arabic = Tajawal (Bold 700 / Regular 400). Hebrew = Segoe UI (Semibold 600 / Regular 400) */
+  --font-header: 'Tajawal', 'Noto Sans Arabic', sans-serif;
+  --font-description: 'Tajawal', 'Noto Sans Arabic', sans-serif;
   --font-text: 'Tajawal', 'Noto Sans Arabic', sans-serif;
+  --font-header-weight: 700;
   
   /* Spacing */
   --space-xs: 0.25rem;

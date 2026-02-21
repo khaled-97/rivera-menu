@@ -187,7 +187,7 @@ function DashboardContent({ onLogout }: DashboardContentProps) {
   };
 
   const handleDeleteItem = (itemId: number, _categoryId: string) => {
-    if (!confirm("هل أنت متأكد من حذف هذا الصنف؟")) return;
+    if (!confirm("هل أنت متأكد من حذف هذا الطبق؟")) return;
     deleteItemMutation.mutate({ id: itemId });
   };
 
@@ -216,7 +216,7 @@ function DashboardContent({ onLogout }: DashboardContentProps) {
     const category = menuData?.categories.find((cat) => cat.id === categoryId);
     
     if (category && category.items.length > 0) {
-      if (!confirm("هذه الفئة تحتوي على أصناف. هل أنت متأكد من حذفها؟")) return;
+      if (!confirm("هذه الفئة تحتوي على أطباق. هل أنت متأكد من حذفها؟")) return;
     }
 
     deleteCategoryMutation.mutate({ id: categoryId });
@@ -284,65 +284,78 @@ function DashboardContent({ onLogout }: DashboardContentProps) {
     <div className={styles.dashboard} dir="rtl">
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <h1>لوحة تحكم قائمة ريفيرا</h1>
+          <h1 className={styles.headerTitle}>لوحة تحكم قائمة ريفيرا</h1>
           <div className={styles.headerActions}>
             {isMutating && <span className={styles.saving}>جاري الحفظ...</span>}
-            <button onClick={handleExportData} className={styles.btnSecondary}>
-              تصدير البيانات
-            </button>
-            <label className={styles.btnSecondary}>
-              استيراد البيانات
-              <input
-                type="file"
-                accept=".json"
-                onChange={handleImportData}
-                style={{ display: "none" }}
-              />
-            </label>
-            <Link to="/" className={styles.btnPrimary}>
-              عرض القائمة
-            </Link>
-            <button onClick={onLogout} className={styles.btnSecondary}>
-              تسجيل خروج
-            </button>
+            <div className={styles.actionGroup}>
+              <button onClick={handleExportData} className={styles.btnSecondary}>
+                تصدير البيانات
+              </button>
+              <label className={styles.btnSecondary}>
+                استيراد البيانات
+                <input
+                  type="file"
+                  accept=".json"
+                  onChange={handleImportData}
+                  style={{ display: "none" }}
+                />
+              </label>
+            </div>
+            <div className={styles.actionGroup}>
+              <Link to="/" className={styles.btnPrimary}>
+                عرض القائمة
+              </Link>
+            </div>
+            <div className={styles.actionGroup}>
+              <button onClick={onLogout} className={styles.btnSecondary}>
+                تسجيل خروج
+              </button>
+            </div>
           </div>
         </div>
       </header>
 
       <div className={styles.container}>
-        <div className={styles.tabs}>
-          <button
-            className={`${styles.tab} ${activeTab === "items" ? styles.active : ""}`}
-            onClick={() => setActiveTab("items")}
-          >
-            أصناف القائمة
-          </button>
-          <button
-            className={`${styles.tab} ${activeTab === "categories" ? styles.active : ""}`}
-            onClick={() => setActiveTab("categories")}
-          >
-            الفئات
-          </button>
-        </div>
+        <nav className={styles.tabsWrap} aria-label="أقسام لوحة التحكم">
+          <div className={styles.tabs}>
+            <button
+              className={`${styles.tab} ${activeTab === "items" ? styles.active : ""}`}
+              onClick={() => setActiveTab("items")}
+              aria-pressed={activeTab === "items"}
+            >
+              أطباق القائمة
+            </button>
+            <button
+              className={`${styles.tab} ${activeTab === "categories" ? styles.active : ""}`}
+              onClick={() => setActiveTab("categories")}
+              aria-pressed={activeTab === "categories"}
+            >
+              الفئات
+            </button>
+          </div>
+        </nav>
 
         {activeTab === "items" && (
-          <div className={styles.content}>
-            <div className={styles.sidebar}>
-              <h2>{editingItem ? "تعديل الصنف" : "إضافة صنف جديد"}</h2>
+          <section className={styles.content} aria-label="إدارة أطباق القائمة">
+            <aside className={styles.sidebar}>
+              <h2 className={styles.sidebarTitle}>
+                {editingItem ? "تعديل الطبق" : "إضافة طبق جديد"}
+              </h2>
               <MenuItemForm
                 categories={menuData.categories}
                 onSubmit={editingItem ? handleUpdateItem : handleAddItem}
                 editingItem={editingItem}
                 onCancel={() => setEditingItem(null)}
               />
-            </div>
+            </aside>
             <div className={styles.main}>
               <div className={styles.filterBar}>
-                <h2>أصناف القائمة</h2>
+                <h2 className={styles.mainTitle}>أطباق القائمة</h2>
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
                   className={styles.categoryFilter}
+                  aria-label="تصفية حسب الفئة"
                 >
                   <option value="all">جميع الفئات</option>
                   {menuData.categories.map((cat) => (
@@ -359,29 +372,31 @@ function DashboardContent({ onLogout }: DashboardContentProps) {
                 onDelete={handleDeleteItem}
               />
             </div>
-          </div>
+          </section>
         )}
 
         {activeTab === "categories" && (
-          <div className={styles.content}>
-            <div className={styles.sidebar}>
-              <h2>{editingCategory ? "تعديل الفئة" : "إضافة فئة جديدة"}</h2>
+          <section className={styles.content} aria-label="إدارة الفئات">
+            <aside className={styles.sidebar}>
+              <h2 className={styles.sidebarTitle}>
+                {editingCategory ? "تعديل الفئة" : "إضافة فئة جديدة"}
+              </h2>
               <CategoryForm
                 onSubmit={editingCategory ? handleUpdateCategory : handleAddCategory}
                 editingCategory={editingCategory}
                 onCancel={() => setEditingCategory(null)}
                 existingCategories={menuData.categories}
               />
-            </div>
+            </aside>
             <div className={styles.main}>
-              <h2>الفئات</h2>
+              <h2 className={styles.mainTitle}>الفئات</h2>
               <CategoryList
                 categories={menuData.categories}
                 onEdit={setEditingCategory}
                 onDelete={handleDeleteCategory}
               />
             </div>
-          </div>
+          </section>
         )}
       </div>
     </div>

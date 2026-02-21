@@ -27,7 +27,7 @@ export default function MenuItemList({ categories, selectedCategory, onEdit, onD
   if (items.length === 0) {
     return (
       <div className={styles.empty}>
-        <p>لا توجد أصناف. أضف أول صنف في القائمة!</p>
+        <p>لا توجد أطباق. أضف أول طبق في القائمة!</p>
       </div>
     );
   }

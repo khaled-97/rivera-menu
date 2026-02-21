@@ -40,6 +40,7 @@ export interface LanguageTranslations {
   switchLang: string;
   restaurantName: string;
   restaurantTagline: string;
+  menuBuiltBy: string;
   categories: Record<string, string>;
   items: Record<string, string>;
   tags: TagTranslations;
@@ -60,6 +61,7 @@ export const translations: Translations = {
     switchLang: "עברית",
     restaurantName: "RIVERA",
     restaurantTagline: "مطبخ إيطالي",
+    menuBuiltBy: "تصميم",
     categories: {},
     items: {},
     tags: {
@@ -104,6 +106,7 @@ export const translations: Translations = {
     switchLang: "العربية",
     restaurantName: "RIVERA",
     restaurantTagline: "מטבח איטלקי",
+    menuBuiltBy: "התפריט נבנה על ידי",
     categories: {},
     items: {},
     tags: {

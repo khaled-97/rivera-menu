@@ -103,7 +103,7 @@ function MenuPage() {
       <LanguageProvider>
         <div className={styles.app}>
           <MenuHeader />
-          <div className={styles.empty}>لا توجد أصناف في القائمة</div>
+          <div className={styles.empty}>لا توجد أطباق في القائمة</div>
         </div>
       </LanguageProvider>
     );
