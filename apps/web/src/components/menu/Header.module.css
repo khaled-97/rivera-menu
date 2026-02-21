@@ -1,4 +1,7 @@
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: var(--space-xs) var(--space-md);
   text-align: center;
   background: #006962;
@@ -7,7 +10,7 @@
   z-index: 100;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(92, 107, 74, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .headerScrolled {
@@ -22,38 +25,36 @@
   height: clamp(40px, 8vw, 55px);
 }
 
-.headerScrolled .switcherContainer,
-.headerScrolled .leftLinks {
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 .switcherContainer {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 10;
-  transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [dir="ltr"] .switcherContainer {
-  right: 1rem;
-  left: auto;
+  order: 3;
 }
 
 .leftLinks {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+  flex: 0 0 auto;
   display: flex;
+  align-items: center;
   gap: 0.5rem;
   z-index: 10;
-  transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [dir="ltr"] .leftLinks {
-  left: 1rem;
-  right: auto;
+  order: 1;
+}
+
+[dir="rtl"] .leftLinks {
+  order: 3;
+}
+
+[dir="rtl"] .switcherContainer {
+  order: 1;
 }
 
 .dashboardLink,
@@ -88,12 +89,18 @@
 }
 
 .logoContainer {
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem 0;
   transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: padding;
+  min-width: 0;
+}
+
+[dir="ltr"] .logoContainer,
+[dir="rtl"] .logoContainer {
+  order: 2;
 }
 
 .ornament {

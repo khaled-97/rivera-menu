@@ -16,6 +16,7 @@
     "db:studio": "turbo -F @riveraitalian/db db:studio",
     "db:generate": "turbo -F @riveraitalian/db db:generate",
     "db:migrate": "turbo -F @riveraitalian/db db:migrate",
+    "db:seed-menu": "turbo -F @riveraitalian/db db:seed-menu",
     "db:start": "turbo -F @riveraitalian/db db:start",
     "db:watch": "turbo -F @riveraitalian/db db:watch",
     "db:stop": "turbo -F @riveraitalian/db db:stop",
